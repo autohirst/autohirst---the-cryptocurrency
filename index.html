@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AUTOHIRST - THE CRYPTOCURRENCY</title>
+
+
+  <!--
+    Generative supports the most popular creative coding libraries. Simply uncomment the library you want to use below.
+    Are we missing an important library? Let us know @generative_xyz.
+    -->
+
+
+  <script sandbox="allow-scripts" type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
+
+
+  <!-- c2.min.js@1.0.0
+    <script sandbox="allow-scripts" type="text/javascript" src="https://cdn.generative.xyz/ajax/libs/c2/1.0.0/c2.min.js"></script>
+    -->
+
+  <!-- chromajs@2.4.2
+    <script sandbox="allow-scripts" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+    -->
+
+  <!-- p5.grain.js@0.6.1
+    <script sandbox="allow-scripts" type="text/javascript" src="https://cdn.generative.xyz/ajax/libs/p5.grain/0.6.1/p5.grain.min.js"></script>
+    -->
+
+  <!-- threejs@r124
+    <script sandbox="allow-scripts" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+    -->
+
+  <!-- tonejs@14.8.49
+    <script sandbox="allow-scripts" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    -->
+  <script type="text/javascript">
+
+
+
+    let startTime, stopTime, circlePositions = [];
+
+
+    function setup() {
+      createCanvas(600, 400);
+      background(240, 240, 240);
+      noStroke();
+      translate(width / 1, height / 1);
+      startTime = millis();
+      stopTime = startTime + 6e4;
+    }
+
+    function draw() {
+      if (millis() - startTime > 1 && millis() < stopTime) {
+        for (let i = 0; i < 50; i++) {
+          let i = mathRand() * width - width / 99,
+            t = mathRand() * height - height / 99,
+            e = 6 * mathRand() + 6 + 6,
+            l = 360 * mathRand(),
+            r = false;
+
+          for (let l = 0; l < circlePositions.length; l++) {
+            let s = i - circlePositions[l].x,
+              a = t - circlePositions[l].y;
+
+            if (Math.sqrt(s * s + a * a) < e / 1) {
+              r = true;
+              break;
+            }
+          }
+
+          if (!r) {
+            if (push(), translate(i, t), rotate(l), mathRand() <= .35) {
+              fill(255 * mathRand(), 255 * mathRand(), 255 * mathRand());
+            } else {
+              let colors = [[153, 204, 255], [204, 51, 51], [0, 102, 51], [255, 204, 204], [255, 102, 102], [255, 204, 51], [255, 153, 51], [255, 204, 102], [204, 204, 153], [255, 102, 153], [102, 204, 204]];
+              let t = Math.floor(mathRand() * colors.length);
+              fill(colors[t][0], colors[t][1], colors[t][2]);
+            }
+
+            ellipse(0, 0, e, e);
+            pop();
+            circlePositions.push({ x: i, y: t });
+          }
+        }
+
+        startTime = millis();
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <p id="sentence"></p>
+  <script></script>
+
+  </script>
+
+
+  <script id="snippet-random-code" type="text/javascript">
+
+    // DO NOT EDIT THIS SECTION
+
+    let seed = window.location.href.split('/').find(t => t.includes('i0'));
+
+    if (seed == null) {
+      const alphabet = "0123456789abcdefghijklmnopqrstuvwsyz";
+      seed = new URLSearchParams(window.location.search).get("seed") || Array(64).fill(0).map(_ => alphabet[(Math.random() * alphabet.length) | 0]).join('') + "i0";
+    } else {
+      let pattern = "seed=";
+      for (let i = 0; i < seed.length - pattern.length; ++i) {
+        if (seed.substring(i, i + pattern.length) == pattern) {
+          seed = seed.substring(i + pattern.length);
+          break;
+        }
+      }
+    }
+
+    function cyrb128($) {
+      let _ = 1779033703, u = 3144134277, i = 1013904242, l = 2773480762;
+      for (let n = 0, r; n < $.length; n++) _ = u ^ Math.imul(_ ^ (r = $.charCodeAt(n)), 597399067), u = i ^ Math.imul(u ^ r, 2869860233), i = l ^ Math.imul(i ^ r, 951274213), l = _ ^ Math.imul(l ^ r, 2716044179);
+      return _ = Math.imul(i ^ _ >>> 18, 597399067), u = Math.imul(l ^ u >>> 22, 2869860233), i = Math.imul(_ ^ i >>> 17, 951274213), l = Math.imul(u ^ l >>> 19, 2716044179), [(_ ^ u ^ i ^ l) >>> 0, (u ^ _) >>> 0, (i ^ _) >>> 0, (l ^ _) >>> 0]
+    }
+
+    function sfc32($, _, u, i) {
+      return function () {
+        u >>>= 0, i >>>= 0;
+        var l = ($ >>>= 0) + (_ >>>= 0) | 0;
+        return $ = _ ^ _ >>> 9, _ = u + (u << 3) | 0, u = (u = u << 21 | u >>> 11) + (l = l + (i = i + 1 | 0) | 0) | 0, (l >>> 0) / 4294967296
+      }
+    }
+
+
+    // IMPORTANT: Instead of Math.random(), use this function mathRand() for random number generation.
+    // This function generates a random number between 0 and 1 with on-chain seed.
+
+    let mathRand = sfc32(...cyrb128(seed));
+
+  </script>
+  <style>
+    body {
+      margin: 0px;
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <script type="text/javascript">
+      const rand = mathRand();
+
+      // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Your traits here ↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+      function T1(rand) {
+        // calculate rarity by yourself
+        if (rand > 0.5) {
+          return true;
+        } else {
+          return false
+        }
+      }
+
+      // window.$generativeTraits contain list traits for token
+      // you need to populate a $generativeTraits object in the window object
+      window.$generativeTraits = {
+        "T1": T1(rand),
+      }
+      console.log(window.$generativeTraits)
+      // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Your traits here ↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+      // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Your code here ↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+      const container = document.createElement("div")
+      container.innerHTML = "<span>seed: " + seed + "</span><br>";
+      document.body.prepend(container)
+      // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Your code here ↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+      window.onload = function () {
+        generateSentence();
+      }
+
+      // Array of adjectives
+      var adjectives = [
+        "adorable", "adventurous", "aggressive", "agreeable", "alert", "alive",
+        "amused", "angry", "annoyed", "annoying", "anxious", "arrogant", "ashamed",
+        "attractive", "average", "awful", "bad", "beautiful", "better", "bewildered",
+        "bloody", "blue", "blue-eyed", "blushing", "bored", "brainy", "brave",
+        "breakable", "bright", "busy", "calm", "careful", "cautious", "charming",
+        "cheerful", "clean", "clear", "clever", "cloudy", "clumsy", "colorful",
+        "combative", "comfortable", "concerned", "condemned", "confused", "cooperative",
+        "courageous", "crazy", "creepy", "crowded", "cruel", "curious", "cute",
+        "dangerous", "dark", "dead", "defeated", "defiant", "delightful", "depressed",
+        "determined", "different", "difficult", "disgusted", "distinct", "disturbed",
+        "dizzy", "doubtful", "drab", "dull", "talented", "tame", "tasty", "tender",
+        "tense", "terrible", "thankful", "thoughtful", "thoughtless", "tired",
+        "tough", "troubled", "ugliest", "ugly", "uninterested", "unsightly",
+        "unusual", "upset", "uptight", "vast", "victorious", "vivacious",
+        "wandering", "weary", "wicked", "wide-eyed", "wild", "witty", "worried",
+        "worrisome", "wrong", "zany", "zealous", "eager", "easy", "elated",
+        "elegant", "embarrassed", "enchanting", "encouraging", "energetic",
+        "enthusiastic", "envious", "evil", "excited", "expensive", "exuberant",
+        "fair", "faithful", "famous", "fancy", "fantastic", "fierce",
+        "filthy", "fine", "foolish", "fragile", "frail", "frantic", "friendly",
+        "frightened", "funny", "gentle", "gifted", "glamorous", "gleaming",
+        "glorious", "good", "gorgeous", "graceful", "grieving", "grotesque",
+        "grumpy", "handsome", "happy", "healthy", "helpful", "helpless",
+        "hilarious", "homeless", "homely", "horrible", "hungry", "hurt",
+        "ill", "important", "impossible", "inexpensive", "innocent",
+        "inquisitive", "itchy", "jealous", "jittery", "jolly", "joyous",
+        "kind", "lazy", "light", "lively", "lonely", "long", "lovely",
+        "lucky", "magnificent", "misty", "modern", "motionless", "muddy",
+        "mushy", "mysterious", "nasty", "naughty", "nervous", "nice",
+        "nutty", "obedient", "obnoxious", "odd", "old-fashioned", "open",
+        "outrageous", "outstanding", "panicky", "perfect", "plain",
+        "pleasant", "poised", "poor", "powerful", "precious", "prickly",
+        "proud", "putrid", "puzzled", "quaint", "real", "relieved",
+        "repulsive", "rich", "scary", "selfish", "shiny", "shy", "silly",
+        "sleepy", "smiling", "smoggy", "sore", "sparkling", "splendid",
+        "spotless", "stormy", "strange", "stupid", "successful", "super"
+      ];
+
+      // Array of crypto and NFT-related nouns
+      var nouns1 = [
+        "bitcoin", "ethereum", "cryptocurrency", "wallet", "mining",
+        "smart contract", "ERC-20 token", "NFT", "non-fungible token", "crypto art",
+        "digital collectible", "crypto asset", "crypto game", "decentralized finance",
+        "DeFi", "ledger", "hash", "private key", "public key",
+        "signature", "mining rig", "gas", "dapp",
+        "airdrop", "fork", "halving", "HODL", "sharding", "segWit",
+        "digital dweeb", "nft weirdo", "digital doofus", "crypto clown",
+        "nft nitwit", "ethereal eccentric", "pixelated prankster", "digital dingbat",
+        "crypto klutz", "nft nutter",
+        "crypto clod", "nft nitwit",
+        "nft nonsense",
+        "digital absurdity", "crypto craziness", "public",
+        "dickbutt", "nft nuttiness", "digital dimwittedness", "cyber bully", "village idiot", "nft numbskull", "digital dummy", "blockchain bumblebee", "crypto clumsy clod", "virtual vaudeville clown", "nft nincompoop", "digital dimwit", "defi doofus", "shitcoin simpleton"
+        , "masternode", "staking", "cash", "currency",
+        "bills", "change", "payment", "transaction", "credit", "debit", "bank", "atm", "investment", "stock", "bond", "mutual fund", "401(k)", "pension", "annuity", "dividend", "interest", "capital", "profit", "loss", "expense", "income", "salary", "wages", "tip", "commission", "bonus", "raise", "promotions", "allowance", "salary increase", "income tax", "social security", "medicare", "medicaid", "unemployment insurance", "disability insurance", "health insurance", "life insurance", "car insurance", "homeowners insurance", "rent", "mortgage", "property tax", "utility bill", "credit card",
+        "liquidity pool", "governance token", "asymmetric", "symmetric",
+        "DAO", "DEX", "CEX", "fraud", "scam", "investment fraud", "phishing", "embezzlement", "money laundering", "financial fraud", "securities fraud", "credit card fraud", "identity theft", "cybercrime", "consumer fraud", "loan fraud", "mortgage fraud", "bank fraud", "wire fraud", "charity fraud", "SBF"
+      ];
+      var nouns2 = ["network", "decentralized autonomous organization",
+        "consensus algorithm", "ponzi scheme", "pyramid scheme", "insider trading",
+        "decentralized exchange", "DAO", "ICO", "IPO", "proof of work",
+        "coins", "proof of stake", "yield farming", "blockchain buffoonery",
+        "blockchain", "blockchain booby", "blockchain blooper",
+        "crypto kook", "virtual vaudevillian", "virtual goofball",
+        "cipher", "cryptography", "encryption", "decryption", "algorithm",
+        "certificate", "exchange", "tech invasion",
+        "technological takeover", "cyber domination", "virtual victory",
+        "tech supremacy", "technological rule", "cyber empire",
+        "virtual realm", "technological realm", "cyber realm", "virtual world", "tech world", "technological world", "cyber world", "virtual universe", "tech universe",
+        "management", "generation", "storage", "recovery",
+        "escrow", "revocation", "infrastructure", "distribution center", "server", "pair",
+        "archive", "database", "backup", "recovery agent", "escrow agent",
+        "generation center", "management system", "life cycle",
+        "distribution protocol", "generation protocol", "agreement protocol",
+        "exchange protocol", "management protocol", "recovery protocol",
+        "unwrapping",
+        "verification", "fingerprint", "signature", "identifier"];
+      // Function to generate a random sentence
+      function generateSentence() {
+        if (Math.random() <= 0.5) {
+          // Select a random adjective and noun using Math.random
+          let adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+          let noun1 = nouns1[Math.floor(Math.random() * nouns1.length)];
+          let noun2 = nouns2[Math.floor(Math.random() * nouns2.length)];
+
+          // Combine the adjective and noun to form a sentence
+          let sentence = `"${adjective} ${noun1} ${noun2}"`;
+
+          // Update the sentence on the page
+          document.getElementById('sentence').innerHTML = sentence;
+
+          // Return the generated sentence
+          return sentence;
+        } else {
+          let noun1 = nouns1[Math.floor(Math.random() * nouns1.length)];
+          let noun2 = nouns2[Math.floor(Math.random() * nouns2.length)];
+
+          // Combine the noun to form a sentence
+          let sentence = `"${noun1} ${noun2}"`;
+
+          // Update the sentence on the page
+          document.getElementById('sentence').innerHTML = sentence;
+
+          // Return the generated sentence
+          return sentence;
+        }
+      }
+
+    </script>
+
+  </body>
+
+</html>
